@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>contoh hoisting</title>
+</head>
+<body>
+  <script>
+  	    // function a(){
+  	    // 	console.log('ini a');
+
+  	    // 	function b() {
+  	    // 		console.log('ini b');
+
+  	    // 		function c() {
+  	    // 			console.log('ini c');
+  	    // 		}
+  	    // 		c();
+  	    // 	}
+
+  	    // 	b();
+  	    // }
+
+  	    // a();
+
+  	    // var nama = 'bibin aripin';
+       //  var username = '@bibinaripin';
+
+       //  function cetakUrl() {
+
+       //  	console.log(arguments);
+       //  	var istagramURL = 'istagram.bibin';
+
+       //     return istagramURL+username;
+       //  }
+
+       //  console.log(cetakUrl('bibin@ariopin'));
+
+       function satu() {
+       	 var nama = 'bibin aripin';         // hositing dulu
+       	 console.log(nama);
+       }
+
+       function dua() {                   // hoisting dulu
+       	console.log(nama);
+       }
+ 
+       console.log(nama);                 // hoisting dulu     udefined 
+       var nama = 'eki jaya saputra';       // eki jaya saputra di simpan dulu di memory
+       
+       satu();                                 // jalankan
+       dua('doddy');
+       console.log(nama);
+
+  </script>
+</body>
+</html>
