@@ -1,0 +1,33 @@
+
+.container {
+	width: 800px;
+   margin: auto;
+   border: 1px solid black;
+}
+
+body {
+	font: 16px/28px arial,sans-serif;
+	background-color: #eaeaea;
+}
+
+
+.header .judul{
+	font-size: 40px;
+	font-weight: bold;
+	padding: 10px;
+}
+.header li{
+     
+     display: inline-block;
+     margin-right: 5px;
+}
+
+.header a{
+	text-decoration: none;
+	padding: 5px;
+}
+
+.header a:hover {
+	background-color:lightskyblue;
+	color: white;
+}
