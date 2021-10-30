@@ -15,9 +15,9 @@
 
 		<script>
 			 var burung1 = new Image();
-			 burung1.src = 'img/burung1.png';
-			 // let gambar = new Image();
-			 // gambar.src = 'img/bg2.png';
+			 burung1.src = 'img/karakter1.png';
+			 var burung2 = new Image();
+			 burung2.src = 'img/karakter2.png';
 
 			function mulaiCanvas() {
 			var canvas = document.getElementById('canvas');
@@ -36,19 +36,30 @@
 	       // }
 
 	       function utama() {
-
+              
+              var gantiframe = false;
 	       	  function Karakter() {
 	       	  	this.x = 50;
-	       	  	this.y = 100;
+	       	  	this.y = 50;
 	       	  	this.w = 50;
 	       	  	this.h = 50;
+	       	  	this.i = 0;
 
 	       	  	this.render = function() {
-
-	       	  		ctx.drawImage(burung1,this.x-5,this.y+=10);
+                    if(gantiframe){	
+                       ctx.drawImage(burung2,this.x,this.y+=5); 
+                       this.i++; 
+                       if(this.i == 5){
+                       	gantiframe = false;
+                       	this.i = 0;
+                       }     	  		
+	       	  	}else{
+	       	  		ctx.drawImage(burung1,this.x,this.y+=5);
 	       	  	}
 
 	       	  }
+
+	       	}
 
 	       	  var karakter = new Karakter();
 
@@ -64,7 +75,8 @@
 
 	       	  ctx.canvas.addEventListener('click',function(event){
 
-                   karakter.y+=-70;
+                   karakter.y+=-40;
+                   gantiframe = true;
 	       	  });
 
 
@@ -130,6 +142,6 @@
    //               Mulai();
 			// });
            
-		</script>;
+		</script>
 </body>
 </html>
