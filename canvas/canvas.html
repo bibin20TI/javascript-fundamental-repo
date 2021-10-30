@@ -14,43 +14,121 @@
 		<canvas id="canvas">browses tidak mendukung</canvas>
 
 		<script>
-			 let gambar = new Image();
-			 gambar.src = 'img/bg2.png';
+			 var burung1 = new Image();
+			 burung1.src = 'img/burung1.png';
+			 // let gambar = new Image();
+			 // gambar.src = 'img/bg2.png';
+
+			function mulaiCanvas() {
 			var canvas = document.getElementById('canvas');
-			var ctx = canvas.getContext('2d');
+			var ctx =canvas.getContext('2d');
 			canvas.width =canvas.scrollWidth;
 			canvas.height =canvas.scrollHeight;
-			let cW = canvas.width;
-			let cH = canvas.height;
+		     var  cW = canvas.width;
+			var cH = canvas.height;
 
-			function Mulai(){
-                  function backGround(){
+			utama();
+	       
 
-                  	this.x = 0;
-                  	this.render = function(){
-                  		ctx.drawImage(gambar,this.x--,0);
 
-                  		if(this.x == -399){
-                  			this.x = 0;
-                  		}
-                  	}
-                  }
+	       // function splash(){
 
-                  let latar = new backGround();
-                function animasi() {
-                	ctx.save();
-                	ctx.clearRect(0,0,cW,cH);
-                     latar.render();
-                	ctx.restore();
-                }
+	       // }
 
-                setInterval(animasi,30);
+	       function utama() {
 
-			}
+	       	  function Karakter() {
+	       	  	this.x = 50;
+	       	  	this.y = 100;
+	       	  	this.w = 50;
+	       	  	this.h = 50;
 
-			window.addEventListener('load',function(event){
-                 Mulai();
-			});
+	       	  	this.render = function() {
+
+	       	  		ctx.drawImage(burung1,this.x-5,this.y+=10);
+	       	  	}
+
+	       	  }
+
+	       	  var karakter = new Karakter();
+
+	       	  function animasi() {
+	       	  	ctx.save();
+
+	       	  	ctx.clearRect(0,0,cW,cH);
+                karakter.render();
+	       	  	ctx.restore();
+	       	  }
+
+	       	  var interval = setInterval(animasi,30);
+
+	       	  ctx.canvas.addEventListener('click',function(event){
+
+                   karakter.y+=-70;
+	       	  });
+
+
+	       }
+
+		       }
+	       window.addEventListener('load',function(event){
+	       	 mulaiCanvas();
+	       });
+			// function Mulai(){
+   //                function backGround(){
+
+   //                	this.x = 0;
+   //                	this.render = function(){
+   //                		ctx.drawImage(gambar,this.x--,0);
+
+   //                		if(this.x == -399){
+   //                			this.x = 0;
+   //                		}
+   //                	}
+   //                function Karakter(){
+   //                	this.x = 200;
+   //                	this.y = 200;
+   //                	this.w = 100;
+   //                	this.h = 100;
+
+   //                	this.render = function(){
+   //                      karakter.render = function(){
+   //                		ctx.drawImage(burung,this.x,this.y+=5);
+
+   //                      }
+   //                		ctx.restore();
+   //                	}
+   //                }
+   //                let karakter = new Karakter();
+
+   //                function animasi(){
+   //                	ctx.save();
+   //                	ctx.clearRect(0,0,cW,cH);
+   //                	karakter.render();
+
+   //                	ctx.restore();
+   //                }
+
+   //                let waktu = setInterval(animasi,30);
+   //                }
+
+
+
+   //                let latar = new backGround();
+   //              function animasi() {
+   //              	ctx.save();
+   //              	ctx.clearRect(0,0,cW,cH);
+   //                   latar.render();
+   //              	ctx.restore();
+   //              }
+
+   //              setInterval(animasi,30);
+
+			// }
+
+			// window.addEventListener('load',function(event){
+   //               Mulai();
+			// });
            
 		</script>;
 </body>
