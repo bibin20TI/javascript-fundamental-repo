@@ -16,8 +16,13 @@
 		<script>
 			 var burung1 = new Image();
 			 burung1.src = 'img/karakter1.png';
+
 			 var burung2 = new Image();
 			 burung2.src = 'img/karakter2.png';
+
+			 var bg = new Image();
+			 bg.src = 'img/bg2.png';
+
 
 			function mulaiCanvas() {
 			var canvas = document.getElementById('canvas');
@@ -37,6 +42,20 @@
 
 	       function utama() {
               
+              function Bg() {
+
+              	  this.x = 0;
+              	  this.render = function(){
+              	  	ctx.drawImage(bg,this.x--,0);
+
+              	  	if(this.x == -399){
+              	  		this.x = 0;
+              	  	}
+              	  }
+              }
+
+              var latar = new Bg();
+
               var gantiframe = false;
 	       	  function Karakter() {
 	       	  	this.x = 50;
@@ -67,6 +86,7 @@
 	       	  	ctx.save();
 
 	       	  	ctx.clearRect(0,0,cW,cH);
+                latar.render();
                 karakter.render();
 	       	  	ctx.restore();
 	       	  }
