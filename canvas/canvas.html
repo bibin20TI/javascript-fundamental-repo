@@ -108,6 +108,12 @@
                 ctx.fillText("BEGO LU !!!",150,150);
 
               }
+               var score = 0;
+               var tambahNilai = true;
+              function tambahScore(){
+                score++;
+
+              }
 
               function nabrak(){
               	for(var i =0; i < tiang.length; i++){
@@ -115,6 +121,11 @@
 
               		if((karakter.x+karakter.w > t.x && karakter.y<t.y+t.h && karakter.x <t.x+t.w)||(karakter.x+karakter.w>t.x && karakter.y+karakter.h>t.y+t.h+200 && karakter.x < t.x+t.w)){
               			selesai();
+              		}else if(t.x+t.w < karakter.x){
+              			if(tambahNilai){
+              				tambahScore();
+              				tambahNilai = false;
+              			}
               		}
               	}
 
@@ -133,6 +144,7 @@
 
                        if(t.x+t.w < 0){
                        	tiang.splice(i,1);
+                       	tambahNilai = true;
                        }
 	       	  	}
 
@@ -150,6 +162,8 @@
                 latar.render();
                 karakter.render();
                 renderTiang();
+	       	  	ctx.font = "Bold 15px arial";
+	       	  	ctx.fillText("Skor :"+score,20,20);
                 nabrak();
 	       	  	ctx.restore();
 	       	  }
