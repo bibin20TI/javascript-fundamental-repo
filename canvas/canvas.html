@@ -97,6 +97,34 @@
 	       	  }
               
               var hitung = 0;
+
+              function selesai() {
+                clearInterval(interval);
+                ctx.clearRect(0,0,cW,cH);
+                latar.render();
+                renderTiang();
+                ctx.drawImage(burung2,karakter.x,karakter.y);
+                ctx.font = "Bold 30px arial";
+                ctx.fillText("BEGO LU !!!",150,150);
+
+              }
+
+              function nabrak(){
+              	for(var i =0; i < tiang.length; i++){
+              		var t = tiang[i];
+
+              		if((karakter.x+karakter.w > t.x && karakter.y<t.y+t.h && karakter.x <t.x+t.w)||(karakter.x+karakter.w>t.x && karakter.y+karakter.h>t.y+t.h+200 && karakter.x < t.x+t.w)){
+              			selesai();
+              		}
+              	}
+
+              	if(karakter.y <= 0){
+              		selesai();
+              	}
+              	if(karakter.y+karakter.h >= 256){
+              		selesai();
+              	}
+              }
 	       	  function renderTiang() {
 	       	  	for(var i = 0; i<tiang.length; i++){
                        t= tiang[i];
@@ -122,6 +150,7 @@
                 latar.render();
                 karakter.render();
                 renderTiang();
+                nabrak();
 	       	  	ctx.restore();
 	       	  }
 
